@@ -23,13 +23,13 @@ services:
     ports:
       - "8000:8000"
 
-  custom-worker:
+  worker:
     container_name: worker
     image: alloranetwork/allora-offchain-node:latest
     volumes:
       - ./worker-data:/data
     depends_on:
-      - custom-inference
+      - inference
     env_file:
       - ./worker-data/env_file
   
