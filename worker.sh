@@ -3,8 +3,8 @@
 # Get mnemonic phrase from user
 read -p "Enter your mnemonic phrase: " mnemonic_phrase
 
-mkdir custom-allora
-cd custom-allora
+mkdir allora-worker
+cd allora-worker
 git clone https://github.com/allora-network/allora-huggingface-walkthrough.git
 cd allora-huggingface-walkthrough
 mkdir worker-data 
