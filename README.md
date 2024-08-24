@@ -32,16 +32,16 @@ curl -LOs https://raw.githubusercontent.com/ArgonStark/allora-worker/main/worker
 ```
 <img width="937" alt="Screenshot 2024-08-13 at 10 35 47 PM" src="https://github.com/user-attachments/assets/92ea736b-3323-480e-a1f2-560bc96e7ea8">
 
-make sure both `custom-worker` & `custom-inference` containers are running with `docker ps`
+make sure both `worker` & `inference-hf` containers are running with `docker ps`
 
 <img width="1426" alt="Screenshot 2024-08-17 at 2 50 20 PM" src="https://github.com/user-attachments/assets/cbf981d2-93eb-4e4a-996b-2abd8ecb17e7">
 
-check the worker container with `docker logs -f custom-worker` command
+check the worker container with `docker logs -f worker` command
 
 <img width="816" alt="Screenshot 2024-08-17 at 3 30 29 PM" src="https://github.com/user-attachments/assets/a24a19b0-36a5-407d-8fb5-46c72c63c819">
 
-make sure `custom-inference` is responsive
+make sure `inference-hf` is responsive
 ```
-curl http://localhost:8001/inference/ETH
+curl http://localhost:8000/inference/ETH
 ```
 
