@@ -28,7 +28,7 @@ request some faucet from the [Allora Testnet Faucet](https://faucet.testnet-1.te
 
 ## Run with custom model and pass your mnemonic phrase to it
 ```
-curl -LOs https://raw.githubusercontent.com/ArgonStark/allora-worker/main/worker.sh bash ./worker.sh
+curl -LOs https://raw.githubusercontent.com/ArgonStark/allora-worker/main/worker.sh && chmod +x worker.sh && bash ./worker.sh
 ```
 <img width="937" alt="Screenshot 2024-08-13 at 10 35 47 PM" src="https://github.com/user-attachments/assets/92ea736b-3323-480e-a1f2-560bc96e7ea8">
 
