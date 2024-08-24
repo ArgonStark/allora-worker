@@ -15,7 +15,7 @@ rm docker-compose.yaml
 cat << EOF > docker-compose.yaml
 services:
   custom-inference:
-    image: 0xsarox/inference-allora
+    image: argonstark/inference-allora
     container_name: worker-inference
     ports:
       - "8001:8000"
