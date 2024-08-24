@@ -14,11 +14,14 @@ rm docker-compose.yaml
 
 cat << EOF > docker-compose.yaml
 services:
-  custom-inference:
-    image: argonstark/inference-allora
-    container_name: worker-inference
+  inference:
+    container_name: inference-hf
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python -u /app/app.py
     ports:
-      - "8001:8000"
+      - "8000:8000"
 
   custom-worker:
     container_name: worker
@@ -55,7 +58,7 @@ cat <<EOF > config.json
             "inferenceEntrypointName": "api-worker-reputer",
             "loopSeconds": 1,
             "parameters": {
-                "InferenceEndpoint": "http://worker-inference:8000/inference/{Token}",
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
                 "Token": "BTC"
             }
         },
@@ -64,7 +67,7 @@ cat <<EOF > config.json
             "inferenceEntrypointName": "api-worker-reputer",
             "loopSeconds": 3,
             "parameters": {
-                "InferenceEndpoint": "http://worker-inference:8000/inference/{Token}",
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
                 "Token": "BTC"
             }
         },
@@ -73,7 +76,7 @@ cat <<EOF > config.json
             "inferenceEntrypointName": "api-worker-reputer",
             "loopSeconds": 4,
             "parameters": {
-                "InferenceEndpoint": "http://worker-inference:8000/inference/{Token}",
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
                 "Token": "SOL"
             }
         },
@@ -82,7 +85,7 @@ cat <<EOF > config.json
             "inferenceEntrypointName": "api-worker-reputer",
             "loopSeconds": 5,
             "parameters": {
-                "InferenceEndpoint": "http://worker-inference:8000/inference/{Token}",
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
                 "Token": "SOL"
             }
         },
@@ -91,7 +94,7 @@ cat <<EOF > config.json
             "inferenceEntrypointName": "api-worker-reputer",
             "loopSeconds": 3,
             "parameters": {
-                "InferenceEndpoint": "http://worker-inference:8000/inference/{Token}",
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
                 "Token": "BNB"
             }
         }
